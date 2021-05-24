@@ -1,24 +1,22 @@
-# mortypedia
+# Rick and Morty - Characters Book
 
-## Project setup
+## Description
+As a long-time huge Rick&Morty fanboy, I felt the need to create a web UI for the amazing [API](https://rickandmortyapi.com/) created by [Axel Fuhrmann](https://axelfuhrmann.com/).
+
+The browseable entities are:
+- Characters
+- Episodes
+- Locations
+
+They are nicely hyper-linked together, for you to discover more and more about the universe created by Justin Roiland and Dan Harmon ❤️
+
+### Technology
+Not much, to be honest. It's a [Vue 3](https://vuejs.org/) JS app, styled by [Bulma](https://bulma.io/).
+
+### Compiles and Run
 ```
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Enjoy it!
