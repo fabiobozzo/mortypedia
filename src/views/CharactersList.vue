@@ -1,18 +1,54 @@
 <template>
-    <div class="home">
-        <img alt="Vue logo" src="../assets/logo.png" />
-        <HelloWorld msg="ciao" />
+  <div class="columns is-multiline">
+    <div class="column is-one-third-desktop is-half-tablet">
+      <character-card></character-card>
     </div>
+    <div class="column is-one-third-desktop is-half-tablet">
+      <character-card></character-card>
+    </div>
+    <div class="column is-one-third-desktop is-half-tablet">
+      <character-card></character-card>
+    </div>
+    <div class="column is-one-third-desktop is-half-tablet">
+      <character-card></character-card>
+    </div>
+    <div class="column is-one-third-desktop is-half-tablet">
+      <character-card></character-card>
+    </div>
+    <div class="column is-one-third-desktop is-half-tablet">
+      <character-card></character-card>
+    </div>
+    <div class="column is-one-third-desktop is-half-tablet">
+      <character-card></character-card>
+    </div>
+    <div class="column is-one-third-desktop is-half-tablet">
+      <character-card></character-card>
+    </div>
+    <div class="column is-one-third-desktop is-half-tablet">
+      <character-card></character-card>
+    </div>
+    <div class="column is-one-third-desktop is-half-tablet">
+      <character-card></character-card>
+    </div>
+    <div class="column is-one-third-desktop is-half-tablet">
+      <character-card></character-card>
+    </div>
+    <div class="column is-one-third-desktop is-half-tablet">
+      <character-card></character-card>
+    </div>
+    <div class="column is-one-third-desktop is-half-tablet">
+      <character-card></character-card>
+    </div>
+    <div class="column is-one-third-desktop is-half-tablet">
+      <character-card></character-card>
+    </div>
+  </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import CharacterCard from "@/components/characters/CharacterCard.vue";
 
 export default {
-    name: "Home",
-    components: {
-        HelloWorld,
-    },
+  components: { CharacterCard },
 };
 </script>

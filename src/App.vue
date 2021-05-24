@@ -1,3 +1,63 @@
 <template>
-    <router-view />
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-half has-text-centered is-offset-one-quarter">
+          <img class="logo" alt="Vue logo" src="./assets/logo.png" />
+          <h2 class="subtitle">Characters Book</h2>
+        </div>
+      </div>
+      <nav-bar></nav-bar>
+      <div class="is-divider"></div>
+      <router-view />
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Mortypedia</strong> by
+        <a href="https://github.com/fabiobozzo">Fabio Bozzo</a>.
+      </p>
+      <p>
+        The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+      </p>
+      <p>
+        The website content is licensed
+        <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+          >CC BY NC SA 4.0</a
+        >.
+      </p>
+    </div>
+  </footer>
 </template>
+
+<script>
+import NavBar from "./components/NavBar.vue";
+
+export default {
+  components: {
+    NavBar,
+  },
+};
+</script>
+
+<style scoped>
+.logo {
+  max-height: 8rem;
+}
+.subtitle {
+  font-family: "Get Schwifty";
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Get Schwifty";
+  src: url("./assets/schwifty.woff2") format("woff2"),
+    url("./assets/schwifty.woff") format("woff"),
+    url("./assets/schwifty.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+</style>

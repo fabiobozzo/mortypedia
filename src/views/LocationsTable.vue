@@ -1,0 +1,1 @@
+<template>LocationsTable</template>
