@@ -1,6 +1,5 @@
 # Rick and Morty - Characters Book
 
-## Description
 As a long-time huge Rick&Morty fanboy, I felt the need to create a web UI for the amazing [API](https://rickandmortyapi.com/) created by [Axel Fuhrmann](https://axelfuhrmann.com/).
 
 The browseable entities are:
@@ -13,7 +12,7 @@ They are nicely hyper-linked together, for you to discover more and more about t
 ### Technology
 Not much, to be honest. It's a [Vue 3](https://vuejs.org/) JS app, styled by [Bulma](https://bulma.io/).
 
-### Compiles and Run
+### Compile and Run
 ```
 npm install
 npm run serve

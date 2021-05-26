@@ -1,1 +1,3 @@
-<template>LocationsTable</template>
+<template>
+  <div>LocationsTable</div>
+</template>

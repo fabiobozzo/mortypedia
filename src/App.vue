@@ -9,7 +9,11 @@
       </div>
       <nav-bar></nav-bar>
       <div class="is-divider"></div>
-      <router-view />
+      <router-view v-slot="slotProps">
+        <transition name="route-transition" mode="out-in">
+          <component :is="slotProps.Component"></component>
+        </transition>
+      </router-view>
     </div>
   </section>
   <footer class="footer">
@@ -59,5 +63,18 @@ export default {
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+}
+.route-transition-enter-from,
+.route-transition-leave-from {
+  opacity: 0;
+}
+
+.route-transition-enter-active {
+  transition: opacity 1s ease-out;
+}
+
+.route-transition-enter-to,
+.route-transition-leave-to {
+  opacity: 1;
 }
 </style>
