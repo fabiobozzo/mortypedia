@@ -2,47 +2,12 @@
   <div>
     <character-filter></character-filter>
     <div class="columns is-multiline">
-      <div class="column is-one-third-desktop is-half-tablet">
-        <character-card></character-card>
-      </div>
-      <div class="column is-one-third-desktop is-half-tablet">
-        <character-card></character-card>
-      </div>
-      <div class="column is-one-third-desktop is-half-tablet">
-        <character-card></character-card>
-      </div>
-      <div class="column is-one-third-desktop is-half-tablet">
-        <character-card></character-card>
-      </div>
-      <div class="column is-one-third-desktop is-half-tablet">
-        <character-card></character-card>
-      </div>
-      <div class="column is-one-third-desktop is-half-tablet">
-        <character-card></character-card>
-      </div>
-      <div class="column is-one-third-desktop is-half-tablet">
-        <character-card></character-card>
-      </div>
-      <div class="column is-one-third-desktop is-half-tablet">
-        <character-card></character-card>
-      </div>
-      <div class="column is-one-third-desktop is-half-tablet">
-        <character-card></character-card>
-      </div>
-      <div class="column is-one-third-desktop is-half-tablet">
-        <character-card></character-card>
-      </div>
-      <div class="column is-one-third-desktop is-half-tablet">
-        <character-card></character-card>
-      </div>
-      <div class="column is-one-third-desktop is-half-tablet">
-        <character-card></character-card>
-      </div>
-      <div class="column is-one-third-desktop is-half-tablet">
-        <character-card></character-card>
-      </div>
-      <div class="column is-one-third-desktop is-half-tablet">
-        <character-card></character-card>
+      <div
+        v-for="c in characters"
+        :key="c.id"
+        class="column is-one-third-desktop is-half-tablet"
+      >
+        <character-card :character="c"></character-card>
       </div>
     </div>
   </div>
@@ -50,6 +15,7 @@
 
 <script>
 import { mapGetters } from "vuex";
+import repository from "@/repositories/characters.js";
 
 import CharacterCard from "@/components/characters/CharacterCard.vue";
 import CharacterFilter from "@/components/characters/CharacterFilter.vue";
@@ -75,9 +41,15 @@ export default {
     },
   },
   methods: {
-    loadCharacters() {
+    async loadCharacters() {
       this.characters = [];
-      console.log("loadCharacters");
+      try {
+        const response = await repository.fetchCharacters(1, this.filter);
+        console.log(response.data.data);
+        this.characters = response.data.data.characters.results;
+      } catch (err) {
+        console.log(err);
+      }
     },
   },
 };
