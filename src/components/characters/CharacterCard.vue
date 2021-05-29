@@ -4,20 +4,18 @@
       <figure class="image is-square">
         <img :src="character.image" :alt="character.name" />
       </figure>
+      <span :class="statusTagClasses">{{
+        character.status.toLowerCase()
+      }}</span>
     </div>
     <div class="card-content">
       <div class="media">
         <div class="media-content">
-          <p class="title is-4">{{ character.name }}</p>
-          <p class="subtitle is-6">
-            <span :class="statusTagClasses">{{
-              character.status.toLowerCase()
-            }}</span>
-          </p>
+          <p class="title">{{ character.name }}</p>
         </div>
       </div>
       <div class="content">
-        <p>
+        <p v-if="character.type">
           Type: <strong>{{ character.type }}</strong>
         </p>
         <p>
@@ -41,7 +39,9 @@ export default {
   },
   computed: {
     statusTagClasses() {
-      const classes = { tag: true };
+      const classes = {
+        tag: true,
+      };
       if (this.character) {
         switch (this.character.status.toLowerCase()) {
           case "alive":
@@ -60,3 +60,19 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.card {
+  cursor: pointer;
+}
+.card:hover {
+  box-shadow: rgba(255, 255, 100, 0.8) 0px 5px 5px,
+    rgba(255, 255, 100, 0.65) 0px -5px 5px, rgba(255, 255, 100, 0.6) 0px 5px 5px,
+    rgba(255, 255, 100, 0.7) 0px 5px 5px, rgba(255, 255, 100, 0.5) 0px -5px 5px;
+}
+.card-image .tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+</style>

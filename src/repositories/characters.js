@@ -1,19 +1,12 @@
 import graphql from "@/graphql.js";
 
 const fetchCharacters = async (page, filter) => {
-  const filterProps = [];
-  if (filter) {
-    Object.keys(filter).forEach((key) => {
-      if (filter[key] !== "") {
-        filterProps.push(`${key}: "${filter[key]}"`);
-      }
-    });
-  }
   const args = {
     page: page,
   };
-  if (filterProps.length > 0) {
-    args.filter = `{${filterProps.join(",")}}`;
+  const argFilter = filterToGraphqlArgs(filter);
+  if (argFilter) {
+    args.filter = argFilter;
   }
   return graphql(
     `query { 
@@ -21,6 +14,7 @@ const fetchCharacters = async (page, filter) => {
         info { 
           count 
           pages
+          next
         } 
         results { 
           id
@@ -35,6 +29,21 @@ const fetchCharacters = async (page, filter) => {
     }`,
     args
   );
+};
+
+const filterToGraphqlArgs = (filter) => {
+  const filterProps = [];
+  if (filter) {
+    Object.keys(filter).forEach((key) => {
+      if (filter[key] !== "") {
+        filterProps.push(`${key}: "${filter[key]}"`);
+      }
+    });
+  }
+  if (filterProps.length > 0) {
+    return `{${filterProps.join(",")}}`;
+  }
+  return null;
 };
 
 export default {

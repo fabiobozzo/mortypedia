@@ -13,7 +13,7 @@
       <span class="link">Search</span>
     </p>
     <div class="panel-block" v-show="showFilters">
-      <div class="fieldset">
+      <form class="fieldset" @submit.prevent="applyFilters">
         <div class="columns is-multiline">
           <div class="column is-half field">
             <label class="label">Name</label>
@@ -64,22 +64,20 @@
           </div>
           <div class="column is-half field">
             <button
+              type="button"
               class="button is-link is-light is-fullwidth"
-              @click="resetFilters"
+              @click.prevent="resetFilters"
             >
               Reset
             </button>
           </div>
           <div class="column is-half field">
-            <button
-              class="button is-link is-fullwidth"
-              @click.prevent="applyFilters"
-            >
+            <button type="submit" class="button is-link is-fullwidth">
               Submit
             </button>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   </nav>
 </template>
@@ -117,6 +115,7 @@ export default {
       const species = this.$refs.speciesInput.value;
       const status = this.$refs.statusSelect.value;
       const gender = this.$refs.genderSelect.value;
+      console.log(name);
       this.setFilter({
         name: name,
         species: species,
