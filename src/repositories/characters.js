@@ -31,6 +31,36 @@ const fetchCharacters = async (page, filter) => {
   );
 };
 
+const fetchCharacter = async (id) => {
+  return graphql(
+    `query { 
+      character(id:$id) { 
+        id
+        name 
+        status
+        species
+        type
+        gender
+        image
+        created
+        origin {
+          id
+          name
+        }
+        location {
+          id
+          name
+        }
+        episode {
+          id
+          name
+          episode
+        }
+      } 
+    }`.replace("$id", id)
+  );
+};
+
 const filterToGraphqlArgs = (filter) => {
   const filterProps = [];
   if (filter) {
@@ -48,4 +78,5 @@ const filterToGraphqlArgs = (filter) => {
 
 export default {
   fetchCharacters,
+  fetchCharacter,
 };

@@ -10,7 +10,7 @@
           }"
         ></i>
       </span>
-      <span class="link">Search</span>
+      <span class="link"> SEARCH</span>
     </p>
     <div class="panel-block" v-show="showFilters">
       <form class="fieldset" @submit.prevent="applyFilters">
@@ -111,11 +111,10 @@ export default {
       this.filtersOpen = !this.filtersOpen;
     },
     applyFilters() {
-      const name = this.$refs.nameInput.value;
-      const species = this.$refs.speciesInput.value;
+      const name = this.$refs.nameInput.value.replace(/['"]+/g, "");
+      const species = this.$refs.speciesInput.value.replace(/['"]+/g, "");
       const status = this.$refs.statusSelect.value;
       const gender = this.$refs.genderSelect.value;
-      console.log(name);
       this.setFilter({
         name: name,
         species: species,

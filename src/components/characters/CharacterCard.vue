@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" @click="toDetails(character.id)">
     <div class="card-image">
       <figure class="image is-square">
         <img :src="character.image" :alt="character.name" />
@@ -56,6 +56,11 @@ export default {
         }
       }
       return classes;
+    },
+  },
+  methods: {
+    toDetails(id) {
+      this.$router.push({ path: `/characters/${id}` });
     },
   },
 };

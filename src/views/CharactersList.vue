@@ -16,7 +16,7 @@
         v-if="!isLoading && hasNextPage"
         @click="loadNextPage"
       >
-        Load more...
+        LOAD MORE
       </button>
       <img
         alt="Loading... Please wait."
@@ -81,8 +81,12 @@ export default {
       this.loadCharacters();
     },
   },
-  mounted() {
+  created() {
+    console.log("CharacterList created");
     this.loadCharacters();
+  },
+  mounted() {
+    console.log(this.$route);
   },
 };
 </script>

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import CharactersList from "@/views/CharactersList.vue";
+import CharacterDetails from "@/views/CharacterDetails.vue";
 import EpisodesTable from "@/views/EpisodesTable.vue";
 import LocationsTable from "@/views/LocationsTable.vue";
 
@@ -9,6 +10,12 @@ const routes = [
     path: "/characters",
     name: "characters",
     component: CharactersList,
+  },
+  {
+    path: "/characters/:id",
+    name: "character",
+    component: CharacterDetails,
+    props: true,
   },
   {
     path: "/episodes",
@@ -26,10 +33,16 @@ const router = createRouter({
   history: createWebHistory(),
   linkActiveClass: "active",
   routes: routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    }
+    return { left: 0, top: 0 };
+  },
 });
 
 router.beforeEach(function (to, from, next) {
-  console.log("Global router.beforeEach", to, from);
+  // console.log("Global router.beforeEach", to, from);
   next();
 });
 

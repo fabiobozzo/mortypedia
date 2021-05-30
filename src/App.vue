@@ -9,10 +9,10 @@
       </div>
       <nav-bar></nav-bar>
       <div class="is-divider"></div>
-      <router-view v-slot="slotProps">
-        <transition name="route-transition" mode="out-in">
-          <component :is="slotProps.Component"></component>
-        </transition>
+      <router-view v-slot="{ Component }">
+        <keep-alive>
+          <component :is="Component" :key="$route.fullPath"></component>
+        </keep-alive>
       </router-view>
     </div>
   </section>
