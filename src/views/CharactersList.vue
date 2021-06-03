@@ -85,8 +85,5 @@ export default {
     console.log("CharacterList created");
     this.loadCharacters();
   },
-  mounted() {
-    console.log(this.$route);
-  },
 };
 </script>
