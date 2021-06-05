@@ -1,7 +1,7 @@
 <template>
   <div>
     <character-filter></character-filter>
-    <div class="columns is-multiline">
+    <div class="columns is-multiline" ref="charactersContainer">
       <div
         v-for="c in characters"
         :key="c.id"
@@ -58,6 +58,7 @@ export default {
       this.hasNextPage = false;
       this.characters = [];
       this.loadCharacters();
+      window.scrollTo(0, this.$refs.charactersContainer.offsetTop);
     },
   },
   methods: {
