@@ -1,7 +1,11 @@
 <template>
   <div>
     <character-filter></character-filter>
-    <div class="columns is-multiline" ref="charactersContainer">
+    <div
+      class="columns is-multiline"
+      ref="charactersContainer"
+      v-if="characters.length > 0"
+    >
       <div
         v-for="c in characters"
         :key="c.id"
@@ -24,6 +28,7 @@
         v-if="isLoading"
       />
     </div>
+    <not-found v-if="!isLoading && characters.length === 0"></not-found>
   </div>
 </template>
 
@@ -33,11 +38,13 @@ import repository from "@/repositories/characters.js";
 
 import CharacterCard from "@/components/characters/CharacterCard.vue";
 import CharacterFilter from "@/components/characters/CharacterFilter.vue";
+import NotFound from "@/components/ui/NotFound.vue";
 
 export default {
   components: {
     CharacterCard,
     CharacterFilter,
+    NotFound,
   },
   data() {
     return {
@@ -58,7 +65,9 @@ export default {
       this.hasNextPage = false;
       this.characters = [];
       this.loadCharacters();
-      window.scrollTo(0, this.$refs.charactersContainer.offsetTop);
+      if (this.$refs.charactersContainer) {
+        window.scrollTo(0, this.$refs.charactersContainer.offsetTop);
+      }
     },
   },
   methods: {
@@ -87,3 +96,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+h2 {
+  font-size: 2rem;
+}
+</style>

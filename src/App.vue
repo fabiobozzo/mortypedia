@@ -4,7 +4,7 @@
       <div class="columns">
         <div class="column is-half has-text-centered is-offset-one-quarter">
           <img class="logo" alt="Vue logo" src="./assets/logo.png" />
-          <h2 class="subtitle">Characters Book</h2>
+          <h2 class="schwifty">Characters Book</h2>
         </div>
       </div>
       <nav-bar></nav-bar>
@@ -46,15 +46,7 @@ export default {
 };
 </script>
 
-<style scoped>
-.logo {
-  max-height: 8rem;
-}
-.subtitle {
-  font-family: "Get Schwifty";
-  font-weight: normal;
-  font-style: normal;
-}
+<style>
 @font-face {
   font-family: "Get Schwifty";
   src: url("./assets/schwifty.woff2") format("woff2"),
@@ -63,6 +55,17 @@ export default {
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+}
+.schwifty {
+  font-family: "Get Schwifty";
+  font-weight: normal;
+  font-style: normal;
+}
+</style>
+
+<style scoped>
+.logo {
+  max-height: 8rem;
 }
 .route-transition-enter-from,
 .route-transition-leave-from {
