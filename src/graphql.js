@@ -7,7 +7,7 @@ const axiosInstance = axios.create({
   },
 });
 
-const graphql = async (query, args) => {
+const post = async (query, args) => {
   if (args) {
     query = query.replace(
       "$args",
@@ -21,4 +21,22 @@ const graphql = async (query, args) => {
   });
 };
 
-export default graphql;
+const filterToGraphqlArgs = (filter) => {
+  const filterProps = [];
+  if (filter) {
+    Object.keys(filter).forEach((key) => {
+      if (filter[key] !== "") {
+        filterProps.push(`${key}: "${filter[key]}"`);
+      }
+    });
+  }
+  if (filterProps.length > 0) {
+    return `{${filterProps.join(",")}}`;
+  }
+  return null;
+};
+
+export default {
+  post,
+  filterToGraphqlArgs,
+};

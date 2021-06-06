@@ -1,10 +1,14 @@
 import { createStore } from "vuex";
 
 import charactersModule from "./modules/characters.js";
+import locationsModule from "./modules/locations.js";
+import episodesModule from "./modules/episodes.js";
 
 export default createStore({
   modules: {
     characters: charactersModule,
+    locations: locationsModule,
+    episodes: episodesModule,
   },
   state() {
     return {

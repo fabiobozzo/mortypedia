@@ -1,6 +1,6 @@
 import graphql from "@/graphql.js";
 
-const fetchCharacters = async (page, filter) => {
+const fetchLocations = async (page, filter) => {
   const args = {
     page: page,
   };
@@ -10,20 +10,19 @@ const fetchCharacters = async (page, filter) => {
   }
   return graphql.post(
     `query { 
-      characters($args) { 
+      locations($args) { 
         info { 
           count 
           pages
-          next
         } 
         results { 
           id
-          name 
-          status
-          species
+          name
           type
-          gender
-          image
+          dimension
+          residents {
+            id
+          }
         } 
       } 
     }`,
@@ -31,30 +30,18 @@ const fetchCharacters = async (page, filter) => {
   );
 };
 
-const fetchCharacter = async (id) => {
+const fetchLocation = async (id) => {
   return graphql.post(
     `query { 
-      character(id:$id) { 
+      location(id:$id) { 
         id
-        name 
-        status
-        species
+        name
         type
-        gender
-        image
-        created
-        origin {
+        dimension
+        residents {
           id
           name
-        }
-        location {
-          id
-          name
-        }
-        episode {
-          id
-          name
-          episode
+          image
         }
       } 
     }`.replace("$id", id)
@@ -62,6 +49,6 @@ const fetchCharacter = async (id) => {
 };
 
 export default {
-  fetchCharacters,
-  fetchCharacter,
+  fetchLocations,
+  fetchLocation,
 };

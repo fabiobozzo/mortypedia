@@ -7,15 +7,20 @@ import LocationsTable from "@/views/LocationsTable.vue";
 const routes = [
   { path: "/", redirect: "/characters" },
   {
+    path: "/characters/:id",
+    name: "character",
+    component: CharacterDetails,
+    props: true,
+  },
+  {
     path: "/characters",
     name: "characters",
     component: CharactersList,
   },
   {
-    path: "/characters/:id",
-    name: "character",
-    component: CharacterDetails,
-    props: true,
+    path: "/episodes/:id",
+    name: "episode",
+    component: EpisodesTable,
   },
   {
     path: "/episodes",
@@ -23,8 +28,13 @@ const routes = [
     component: EpisodesTable,
   },
   {
-    path: "/locations",
+    path: "/locations/:id",
     name: "locations",
+    component: LocationsTable,
+  },
+  {
+    path: "/locations",
+    name: "location",
     component: LocationsTable,
   },
 ];

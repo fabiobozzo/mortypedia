@@ -1,5 +1,10 @@
 <template>
   <div>
+    <div class="mb-4">
+      <a v-if="showBackToCharacters" @click.prevent="$router.back()">
+        <i class="fas fa-arrow-left"></i> back to characters
+      </a>
+    </div>
     <div class="columns" v-if="character">
       <div class="column is-one-third">
         <div class="box has-text-centered">
@@ -77,6 +82,7 @@ export default {
     return {
       isLoading: false,
       character: null,
+      showBackToCharacters: false,
     };
   },
   methods: {
@@ -94,6 +100,11 @@ export default {
   },
   mounted() {
     this.loadCharacter();
+  },
+  beforeRouteEnter(_, from, next) {
+    next((vm) => {
+      vm.showBackToCharacters = from && from.name === "characters";
+    });
   },
 };
 </script>

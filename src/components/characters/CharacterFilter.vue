@@ -10,7 +10,10 @@
           }"
         ></i>
       </span>
-      <span class="link"> SEARCH</span>
+      <span class="link"> SEARCH BY... </span>
+      <span class="icon is-pulled-right">
+        <i class="fas fa-solid fa-search"></i>
+      </span>
     </p>
     <transition
       name="expand-filters"

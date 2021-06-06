@@ -83,7 +83,6 @@ export default {
     },
   },
   created() {
-    console.log("CharacterList created");
     this.loadCharacters();
   },
 };
