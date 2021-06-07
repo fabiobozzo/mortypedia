@@ -56,30 +56,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.fieldset {
-  width: 100%;
-}
-.filters-opener {
-  cursor: pointer;
-}
-.link:hover {
-  text-decoration: underline;
-}
-.expand-filters-enter-from,
-.expand-filters-leave-from {
-  max-height: 0;
-}
-.expand-filters-enter-active {
-  transition: max-height 0.5s linear;
-}
-.expand-filters-enter-to,
-.expand-filters-leave-to {
-  max-height: 1000px;
-}
-.panel,
-.panel-block {
-  overflow: hidden;
-}
-</style>
