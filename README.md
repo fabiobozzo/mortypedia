@@ -1,5 +1,7 @@
 # Rick and Morty - Characters Book
 
+[Live Demo](https://mortypedia.netlify.app/)
+
 As a long-time huge Rick&Morty fanboy, I felt the need to create a web UI for the amazing [API](https://rickandmortyapi.com/) created by [Axel Fuhrmann](https://axelfuhrmann.com/).
 
 The browseable entities are:
