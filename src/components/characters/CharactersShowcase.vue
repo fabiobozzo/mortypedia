@@ -22,3 +22,9 @@ export default {
   props: { characters: Array },
 };
 </script>
+
+<style scoped>
+.column {
+  padding: 0.6rem;
+}
+</style>
