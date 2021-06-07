@@ -7,7 +7,7 @@
         :key="s"
       >
         <button
-          class="button"
+          class="button is-fullwidth"
           @click="setSeasonFilter(s === filter.season ? '' : s)"
         >
           <span class="icon is-small" v-if="s === filter.season">

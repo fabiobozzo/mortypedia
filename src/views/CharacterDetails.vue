@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="mb-4">
-      <a v-if="showBackToCharacters" @click.prevent="$router.back()">
-        <i class="fas fa-arrow-left"></i> back to characters
+      <a v-if="showHistoryBack" @click.prevent="$router.back()">
+        <i class="fas fa-arrow-left"></i> back to {{ historyBackTo }}
       </a>
     </div>
     <div class="columns" v-if="character">
@@ -82,7 +82,8 @@ export default {
     return {
       isLoading: false,
       character: null,
-      showBackToCharacters: false,
+      showHistoryBack: false,
+      historyBackTo: "",
     };
   },
   methods: {
@@ -103,7 +104,15 @@ export default {
   },
   beforeRouteEnter(_, from, next) {
     next((vm) => {
-      vm.showBackToCharacters = from && from.name === "characters";
+      vm.historyBackTo = "";
+      vm.showHistoryBack =
+        from &&
+        (from.name === "characters" ||
+          from.name === "episode" ||
+          from.name === "location");
+      if (vm.showHistoryBack) {
+        vm.historyBackTo = from.name;
+      }
     });
   },
 };

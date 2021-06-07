@@ -61,6 +61,14 @@ export default {
   font-weight: normal;
   font-style: normal;
 }
+.hoverable {
+  cursor: pointer;
+}
+.hoverable:hover {
+  box-shadow: rgba(255, 255, 100, 0.8) 0px 5px 5px,
+    rgba(255, 255, 100, 0.65) 0px -5px 5px, rgba(255, 255, 100, 0.6) 0px 5px 5px,
+    rgba(255, 255, 100, 0.7) 0px 5px 5px, rgba(255, 255, 100, 0.5) 0px -5px 5px;
+}
 </style>
 
 <style scoped>

@@ -2,24 +2,30 @@
   <div class="box">
     <div class="columns is-mobile">
       <div class="column">
-        <input
-          class="input"
-          type="text"
-          placeholder="e.g. Planet"
-          :value="filter.type"
-          @input="debouncedApplyFilters"
-          ref="typeInput"
-        />
+        <label class="label">Type</label>
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            placeholder="e.g. Planet"
+            :value="filter.type"
+            @input="debouncedApplyFilters"
+            ref="typeInput"
+          />
+        </div>
       </div>
       <div class="column">
-        <input
-          class="input"
-          type="text"
-          placeholder="e.g. C-137"
-          :value="filter.dimension"
-          @input="debouncedApplyFilters"
-          ref="dimensionInput"
-        />
+        <label class="label">Dimension</label>
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            placeholder="e.g. C-137"
+            :value="filter.dimension"
+            @input="debouncedApplyFilters"
+            ref="dimensionInput"
+          />
+        </div>
       </div>
     </div>
   </div>

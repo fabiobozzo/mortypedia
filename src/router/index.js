@@ -2,7 +2,9 @@ import { createRouter, createWebHistory } from "vue-router";
 import CharactersList from "@/views/CharactersList.vue";
 import CharacterDetails from "@/views/CharacterDetails.vue";
 import EpisodesTable from "@/views/EpisodesTable.vue";
+import EpisodeDetails from "@/views/EpisodeDetails.vue";
 import LocationsTable from "@/views/LocationsTable.vue";
+import LocationDetails from "@/views/LocationDetails.vue";
 
 const routes = [
   { path: "/", redirect: "/characters" },
@@ -20,7 +22,8 @@ const routes = [
   {
     path: "/episodes/:id",
     name: "episode",
-    component: EpisodesTable,
+    component: EpisodeDetails,
+    props: true,
   },
   {
     path: "/episodes",
@@ -30,7 +33,8 @@ const routes = [
   {
     path: "/locations/:id",
     name: "locations",
-    component: LocationsTable,
+    component: LocationDetails,
+    props: true,
   },
   {
     path: "/locations",

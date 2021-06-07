@@ -1,5 +1,5 @@
 <template>
-  <div class="card" @click="toDetails(character.id)">
+  <div class="card hoverable" @click="toDetails(character.id)">
     <div class="card-image">
       <figure class="image is-square">
         <img :src="character.image" :alt="character.name" />
@@ -67,14 +67,6 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  cursor: pointer;
-}
-.card:hover {
-  box-shadow: rgba(255, 255, 100, 0.8) 0px 5px 5px,
-    rgba(255, 255, 100, 0.65) 0px -5px 5px, rgba(255, 255, 100, 0.6) 0px 5px 5px,
-    rgba(255, 255, 100, 0.7) 0px 5px 5px, rgba(255, 255, 100, 0.5) 0px -5px 5px;
-}
 .card-image .tag {
   position: absolute;
   top: 0;
