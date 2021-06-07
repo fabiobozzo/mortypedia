@@ -34,7 +34,7 @@ a:hover {
     rgba(255, 255, 100, 0.5) 0px -3px 5px;
 }
 img {
-  max-width: 5rem;
-  max-height: 5rem;
+  max-width: 10vw;
+  max-height: 10vw;
 }
 </style>

@@ -4,7 +4,7 @@
     <div class="has-text-centered" v-if="isLoading">
       <img alt="Loading... Please wait." src="../assets/loading.gif" />
     </div>
-    <div v-if="!isLoading && locations.length > 0">
+    <div v-if="!isLoading && locations.length > 0" class="is-hidden-mobile">
       <table
         class="table is-striped is-hoverable is-fullwidth"
         ref="locationsTable"
@@ -39,6 +39,9 @@
         :pagesCount="pagesCount"
         @pageChange="pageChanged"
       ></paginator>
+    </div>
+    <div v-if="!isLoading && locations.length > 0" class="is-hidden-tablet">
+      coming soon...
     </div>
     <not-found v-if="!isLoading && locations.length === 0"></not-found>
   </div>
