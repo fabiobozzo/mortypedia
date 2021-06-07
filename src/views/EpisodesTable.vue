@@ -4,11 +4,12 @@
     <div class="has-text-centered" v-if="isLoading">
       <img alt="Loading... Please wait." src="../assets/loading.gif" />
     </div>
-    <div v-if="!isLoading && episodes.length > 0" class="is-hidden-mobile">
-      <table
-        class="table is-striped is-hoverable is-fullwidth"
-        ref="episodesTable"
-      >
+    <div
+      v-if="!isLoading && episodes.length > 0"
+      class="is-hidden-mobile"
+      ref="episodesTable"
+    >
+      <table class="table is-striped is-hoverable is-fullwidth">
         <thead>
           <tr>
             <th>Code</th>
@@ -42,8 +43,35 @@
         @pageChange="pageChanged"
       ></paginator>
     </div>
-    <div v-if="!isLoading && episodes.length > 0" class="is-hidden-tablet">
-      coming soon...
+    <div
+      v-if="!isLoading && episodes.length > 0"
+      class="is-hidden-tablet"
+      ref="episodesTable"
+    >
+      <div class="card mb-3" v-for="e in episodes" :key="e.id">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4">
+                <router-link :to="'/episodes/' + e.id">
+                  {{ e.episode }}
+                </router-link>
+              </p>
+              <p class="subtitle is-6">
+                <strong>{{ e.name }}</strong>
+              </p>
+            </div>
+          </div>
+          <div class="content">
+            <p>
+              Air Date: <strong>{{ e.air_date }}</strong>
+            </p>
+            <p>
+              Characters: <strong>{{ e.characters.length || 0 }}</strong>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
     <not-found v-if="!isLoading && episodes.length === 0"></not-found>
   </div>

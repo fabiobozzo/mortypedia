@@ -32,13 +32,13 @@ const routes = [
   },
   {
     path: "/locations/:id",
-    name: "locations",
+    name: "location",
     component: LocationDetails,
     props: true,
   },
   {
     path: "/locations",
-    name: "location",
+    name: "locations",
     component: LocationsTable,
   },
 ];
@@ -53,11 +53,6 @@ const router = createRouter({
     }
     return { left: 0, top: 0 };
   },
-});
-
-router.beforeEach(function (to, from, next) {
-  // console.log("Global router.beforeEach", to, from);
-  next();
 });
 
 export default router;

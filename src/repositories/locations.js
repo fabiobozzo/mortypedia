@@ -8,7 +8,6 @@ const fetchLocations = async (page, filter) => {
   if (argFilter) {
     args.filter = argFilter;
   }
-  console.log(args);
   return graphql.post(
     `query { 
       locations($args) { 

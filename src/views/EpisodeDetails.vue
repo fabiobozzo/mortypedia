@@ -20,22 +20,9 @@
           <h2>Characters</h2>
         </div>
         <div class="columns is-multiline is-mobile">
-          <div
-            class="column is-narrow"
-            v-for="character in episode.characters"
-            :key="character.id"
-          >
-            <router-link :to="'/characters/' + character.id">
-              <figure class="image is-96x96 hoverable">
-                <img
-                  class="is-rounded"
-                  :src="character.image"
-                  :alt="character.name"
-                  :title="character.name"
-                />
-              </figure>
-            </router-link>
-          </div>
+          <characters-showcase
+            :characters="episode.characters"
+          ></characters-showcase>
         </div>
       </div>
     </div>
@@ -48,8 +35,13 @@
 <script>
 import repository from "@/repositories/episodes.js";
 
+import CharactersShowcase from "@/components/characters/CharactersShowcase.vue";
+
 export default {
   props: ["id"],
+  components: {
+    CharactersShowcase,
+  },
   data() {
     return {
       isLoading: false,

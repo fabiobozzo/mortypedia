@@ -59,7 +59,6 @@ export default {
   emits: ["pageChange"],
   methods: {
     toPage(index) {
-      console.log("To page: " + index);
       this.$emit("pageChange", index);
     },
   },

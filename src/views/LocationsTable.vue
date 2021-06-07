@@ -4,11 +4,12 @@
     <div class="has-text-centered" v-if="isLoading">
       <img alt="Loading... Please wait." src="../assets/loading.gif" />
     </div>
-    <div v-if="!isLoading && locations.length > 0" class="is-hidden-mobile">
-      <table
-        class="table is-striped is-hoverable is-fullwidth"
-        ref="locationsTable"
-      >
+    <div
+      v-if="!isLoading && locations.length > 0"
+      class="is-hidden-mobile"
+      ref="locationsTable"
+    >
+      <table class="table is-striped is-hoverable is-fullwidth">
         <thead>
           <tr>
             <th>Name</th>
@@ -40,8 +41,33 @@
         @pageChange="pageChanged"
       ></paginator>
     </div>
-    <div v-if="!isLoading && locations.length > 0" class="is-hidden-tablet">
-      coming soon...
+    <div
+      v-if="!isLoading && locations.length > 0"
+      class="is-hidden-tablet"
+      ref="locationsTable"
+    >
+      <div class="card mb-3" v-for="l in locations" :key="l.id">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4">
+                <router-link :to="'/locations/' + l.id">
+                  {{ l.name }}
+                </router-link>
+              </p>
+              <p class="subtitle is-6">{{ l.type }}</p>
+            </div>
+          </div>
+          <div class="content">
+            <p>
+              Dimension: <strong>{{ l.dimension }}</strong>
+            </p>
+            <p>
+              Residents: <strong>{{ l.residents.length || 0 }}</strong>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
     <not-found v-if="!isLoading && locations.length === 0"></not-found>
   </div>

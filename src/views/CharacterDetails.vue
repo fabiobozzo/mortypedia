@@ -25,18 +25,24 @@
           </p>
           <p v-if="character.origin">
             Location of origin:
-            <strong
-              ><router-link :to="'/locations/' + character.origin.id"
+            <strong>
+              <router-link
+                :to="'/locations/' + character.origin.id"
+                v-if="character.origin.name.toLowerCase() !== 'unknown'"
                 >{{ character.origin.name }}
               </router-link>
+              <span v-else>unknown</span>
             </strong>
           </p>
           <p v-if="character.location">
             Last known location:
-            <strong
-              ><router-link :to="'/locations/' + character.location.id"
+            <strong>
+              <router-link
+                :to="'/locations/' + character.location.id"
+                v-if="character.origin.name.toLowerCase() !== 'unknown'"
                 >{{ character.location.name }}
               </router-link>
+              <span v-else>unknown</span>
             </strong>
           </p>
           <div v-if="character.location">
