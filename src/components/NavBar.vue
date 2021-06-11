@@ -18,7 +18,7 @@
       <div class="column has-text-centered">
         <nav-bar-button
           :imgUrl="require(`@/assets/planet.png`)"
-          title="Location"
+          title="Locations"
           type="locations"
         ></nav-bar-button>
       </div>

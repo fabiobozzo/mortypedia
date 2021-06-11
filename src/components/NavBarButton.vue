@@ -25,7 +25,9 @@ a {
   border-radius: 6px;
 }
 a.active {
-  border: 2px solid #444;
+  box-shadow: rgba(255, 255, 100, 0.8) 0px 5px 5px,
+    rgba(255, 255, 100, 0.65) 0px -5px 5px, rgba(255, 255, 100, 0.6) 0px 5px 5px,
+    rgba(255, 255, 100, 0.7) 0px 5px 5px, rgba(255, 255, 100, 0.5) 0px -5px 5px;
 }
 a:hover {
   box-shadow: rgba(255, 255, 100, 0.8) 0px 24px 25px,
